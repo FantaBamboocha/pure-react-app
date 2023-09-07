@@ -3,7 +3,128 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>React Sneakers</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="images/header-image.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper">
+      <div class="overlay">
+        <div class="drawer">
+          <h4>Корзина</h4>
+          <div class="cart-list">
+            <div class="cart-item">
+              <img
+                width="70px"
+                height="70px"
+                src="images/image 5.jpg"
+                alt="cart-item"
+              />
+              <div class="cart-item-info">
+                <p>Мужские Кроссовки Nike Air Max 270</p>
+                <b>12999 p.</b>
+              </div>
+              <div>
+                <button class="common-button delete-button">
+                  <span></span>
+                </button>
+              </div>
+            </div>
+            <div class="cart-item">
+              <img
+                width="70px"
+                height="70px"
+                src="images/image 5.jpg"
+                alt="cart-item"
+              />
+              <div class="cart-item-info">
+                <p>Мужские Кроссовки Nike Air Max 270</p>
+                <b>12999 p.</b>
+              </div>
+              <div>
+                <button class="common-button delete-button">
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-footer"></div>
+        </div>
+      </div>
+      <section class="header-content">
+        <div class="header">
+          <div class="header-left">
+            <img
+              width="40"
+              height="40"
+              src="images/header-image.svg"
+              alt="logo"
+            />
+
+            <div class="left-content">
+              <h3>react sneakers</h3>
+              <p>Магазин лучших кроссовок</p>
+            </div>
+          </div>
+          <ul class="header-right">
+            <li>
+              <img src="images/cart.svg" alt="cart" />
+              <span>1205 p.</span>
+            </li>
+            <li>
+              <img src="images/favorite.svg" alt="favorite" />
+            </li>
+            <li>
+              <img src="images/profile.svg" alt="profile" />
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="main-content">
+        <section class="content">
+          <div class="content-header">
+            <h2>Все кроссвоки</h2>
+            <div class="search-block">
+              <img
+                width="14px"
+                height="45px"
+                src="images/search.svg"
+                alt="search"
+              />
+              <input type="text" placeholder="Поиск..." />
+            </div>
+          </div>
+          <div class="card-area">
+            <div class="card">
+              <button class="common-button like-button">
+                <span></span>
+              </button>
+              <img
+                width="133px"
+                height="112px"
+                src="images/image 5.jpg"
+                alt="sneakers"
+              />
+              <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+              <div class="card-description">
+                <div class="card-left">
+                  <span class="price">Цена:</span>
+                  <b>12999 р.</b>
+                </div>
+                <button class="common-button add-button">
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </body>
 </html>

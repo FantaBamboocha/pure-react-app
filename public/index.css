@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Inter"; }
+
+.wrapper {
+  margin: 50px auto;
+  max-width: 1180px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px; }
+  .wrapper .common-button {
+    height: 32px;
+    width: 32px;
+    border: 0;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer; }
+    .wrapper .common-button span {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      transition: background-image 0.3s ease; }
+  .wrapper .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1; }
+    .wrapper .overlay .drawer {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 30%;
+      padding: 30px;
+      background-color: #FFFFFF; }
+      .wrapper .overlay .drawer h4 {
+        font-size: 24px;
+        font-weight: 700; }
+      .wrapper .overlay .drawer .cart-list {
+        padding: 30px 0; }
+        .wrapper .overlay .drawer .cart-list .cart-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          padding: 30px 20px;
+          width: 100%;
+          border-radius: 20px;
+          border: 1px solid #F3F3F3;
+          background: #FFF; }
+          .wrapper .overlay .drawer .cart-list .cart-item .cart-item-info {
+            padding: 0 12px 0 21px; }
+            .wrapper .overlay .drawer .cart-list .cart-item .cart-item-info p {
+              margin-bottom: 8px; }
+        .wrapper .overlay .drawer .cart-list .delete-button {
+          opacity: 0.6;
+          transition: 0.3s; }
+          .wrapper .overlay .drawer .cart-list .delete-button:hover {
+            opacity: 1; }
+          .wrapper .overlay .drawer .cart-list .delete-button span {
+            background-image: url(images/delete-button.svg); }
+  .wrapper .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 44px;
+    border-bottom: #EAEAEA 1px solid; }
+    .wrapper .header .header-left {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .wrapper .header .header-left img {
+        margin-right: 20px; }
+      .wrapper .header .header-left .left-content h3 {
+        text-transform: uppercase; }
+      .wrapper .header .header-left .left-content p {
+        color: #9D9D9D; }
+    .wrapper .header .header-right {
+      display: flex;
+      gap: 30px;
+      align-items: center; }
+  .wrapper .content {
+    padding: 40px 44px; }
+    .wrapper .content .content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .wrapper .content .content-header .search-block {
+        display: flex;
+        width: 250px;
+        height: 45px;
+        border-radius: 10px;
+        border: 1px solid #F3F3F3;
+        padding: 0 15px; }
+        .wrapper .content .content-header .search-block input {
+          font-size: 16px;
+          border: 0;
+          padding: 10px;
+          outline: none; }
+  .wrapper .card-area {
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; }
+    .wrapper .card-area .card {
+      padding: 20px 30px 34px 30px;
+      width: 220px;
+      border-radius: 40px;
+      border: 1px solid #F3F3F3;
+      background: #FFF;
+      transition: box-shadow 0.3s ease-in-out, transform 0.3s ease; }
+      .wrapper .card-area .card:hover {
+        box-shadow: 0px 14px 30px 0px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px); }
+      .wrapper .card-area .card .like-button {
+        position: absolute; }
+        .wrapper .card-area .card .like-button span {
+          background-image: url(images/heart-empty.svg); }
+        .wrapper .card-area .card .like-button.clicked span {
+          background-image: url(images/heart-filled.svg); }
+      .wrapper .card-area .card h5 {
+        font-size: 14px;
+        font-weight: 400;
+        padding: 14px 0; }
+      .wrapper .card-area .card .card-description {
+        display: flex;
+        justify-content: space-between; }
+        .wrapper .card-area .card .card-description .card-left {
+          display: flex;
+          flex-direction: column; }
+          .wrapper .card-area .card .card-description .card-left span {
+            color: #BDBDBD;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase; }
+      .wrapper .card-area .card .add-button span {
+        background-image: url(images/add-button.svg); }
+      .wrapper .card-area .card .add-button.clicked span {
+        background-image: url(images/added-button.svg); }

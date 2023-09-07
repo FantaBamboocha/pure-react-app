@@ -1,0 +1,224 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Inter";
+}
+
+.wrapper {
+margin: 50px auto;
+max-width: 1180px;
+background: #FFFFFF;
+box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+border-radius: 20px;
+
+.common-button {
+  height: 32px;
+  width: 32px;
+  border: 0;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+
+  span {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    transition: background-image 0.3s ease;
+  }
+}
+
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+
+    .drawer {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 30%;
+      padding: 30px;
+      background-color: #FFFFFF;
+
+      h4{
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .cart-list{
+        padding: 30px 0;
+
+        .cart-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          padding: 30px 20px;
+          width: 100%;
+          border-radius: 20px;
+          border: 1px solid #F3F3F3;
+          background: #FFF;
+
+          .cart-item-info {
+            padding: 0 12px 0 21px;
+
+            p {
+              margin-bottom: 8px;
+            }
+          }
+        }
+
+        .delete-button {
+          opacity: 0.6;
+          transition: 0.3s;
+
+          &:hover{
+            opacity: 1;
+          }
+
+          span {
+            background-image: url(images/delete-button.svg);
+          }
+        }
+
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 44px;
+    border-bottom: #EAEAEA 1px solid;
+
+    .header-left{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      img {
+        margin-right: 20px;
+      }
+
+      .left-content{
+        h3{
+          text-transform: uppercase;
+        }
+
+        p {
+          color: #9D9D9D;
+        }
+      }
+    }
+
+    .header-right{
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+  }
+
+  .content {
+    padding: 40px 44px;
+
+    .content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .search-block {
+        display: flex;
+        width: 250px;
+        height: 45px;
+        border-radius: 10px;
+        border: 1px solid #F3F3F3;  
+        padding: 0 15px;
+
+        input {
+          font-size: 16px;
+          border: 0;
+          padding: 10px;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .card-area{
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    .card {
+      padding: 20px 30px 34px 30px;
+      width: 220px;
+      border-radius: 40px;
+      border: 1px solid #F3F3F3;
+      background: #FFF;
+      transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+
+      &:hover{
+        box-shadow: 0px 14px 30px 0px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px);
+      }
+
+      .like-button{
+        position: absolute;
+
+        span {
+          background-image: url(images/heart-empty.svg);
+        }
+
+        &.clicked {
+          span {
+          background-image: url(images/heart-filled.svg);
+          }
+        }
+      }
+
+      h5{
+        font-size: 14px;
+        font-weight: 400;
+        padding: 14px 0;
+      }
+
+      .card-description{
+        display: flex;
+        justify-content: space-between;
+
+        .card-left{
+          display: flex;
+          flex-direction: column;
+
+          span {
+            color: #BDBDBD;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .add-button{
+
+        span {
+          background-image: url(images/add-button.svg);
+        }
+
+        &.clicked {
+          span {
+            background-image: url(images/added-button.svg)
+          };
+        }
+      }
+    }
+  }
+}
