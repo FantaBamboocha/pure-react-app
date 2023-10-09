@@ -25,7 +25,26 @@
       width: 100%;
       background-size: cover;
       transition: background-image 0.3s ease; }
+  .wrapper .green-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 18px 0;
+    border: 0;
+    border-radius: 18px;
+    background: #9DD458;
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s; }
+    .wrapper .green-button:hover {
+      background: #a9d96c; }
+    .wrapper .green-button:active {
+      background: #91cf44; }
   .wrapper .overlay {
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
@@ -33,7 +52,12 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.1);
     z-index: 1; }
+    .wrapper .overlay .free-space {
+      width: 70%;
+      height: 100%; }
     .wrapper .overlay .drawer {
+      display: flex;
+      flex-direction: column;
       position: absolute;
       right: 0;
       height: 100%;
@@ -44,7 +68,9 @@
         font-size: 24px;
         font-weight: 700; }
       .wrapper .overlay .drawer .cart-list {
-        padding: 30px 0; }
+        flex: 1;
+        padding: 30px 0;
+        overflow: auto; }
         .wrapper .overlay .drawer .cart-list .cart-item {
           display: flex;
           align-items: center;
@@ -65,6 +91,26 @@
             opacity: 1; }
           .wrapper .overlay .drawer .cart-list .delete-button span {
             background-image: url(images/delete-button.svg); }
+  .wrapper .drawer-footer .drawer-footer-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px; }
+    .wrapper .drawer-footer .drawer-footer-summary > * {
+      flex: 0 0 auto; }
+    .wrapper .drawer-footer .drawer-footer-summary div {
+      flex: 1;
+      margin: 0 9px;
+      border-bottom: 1px dashed #DFDFDF; }
+  .wrapper .drawer-footer .green-button {
+    position: relative; }
+    .wrapper .drawer-footer .green-button:hover img {
+      transform: translate(10%, -50%); }
+    .wrapper .drawer-footer .green-button img {
+      position: absolute;
+      top: 50%;
+      right: 13%;
+      transform: translateY(-50%);
+      transition: transform 0.3s; }
   .wrapper .header {
     display: flex;
     justify-content: space-between;
@@ -107,38 +153,3 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px; }
-    .wrapper .card-area .card {
-      padding: 20px 30px 34px 30px;
-      width: 220px;
-      border-radius: 40px;
-      border: 1px solid #F3F3F3;
-      background: #FFF;
-      transition: box-shadow 0.3s ease-in-out, transform 0.3s ease; }
-      .wrapper .card-area .card:hover {
-        box-shadow: 0px 14px 30px 0px rgba(0, 0, 0, 0.05);
-        transform: translateY(-2px); }
-      .wrapper .card-area .card .like-button {
-        position: absolute; }
-        .wrapper .card-area .card .like-button span {
-          background-image: url(images/heart-empty.svg); }
-        .wrapper .card-area .card .like-button.clicked span {
-          background-image: url(images/heart-filled.svg); }
-      .wrapper .card-area .card h5 {
-        font-size: 14px;
-        font-weight: 400;
-        padding: 14px 0; }
-      .wrapper .card-area .card .card-description {
-        display: flex;
-        justify-content: space-between; }
-        .wrapper .card-area .card .card-description .card-left {
-          display: flex;
-          flex-direction: column; }
-          .wrapper .card-area .card .card-description .card-left span {
-            color: #BDBDBD;
-            font-size: 11px;
-            font-weight: 500;
-            text-transform: uppercase; }
-      .wrapper .card-area .card .add-button span {
-        background-image: url(images/add-button.svg); }
-      .wrapper .card-area .card .add-button.clicked span {
-        background-image: url(images/added-button.svg); }

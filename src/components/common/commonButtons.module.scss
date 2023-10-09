@@ -1,0 +1,16 @@
+.common-button {
+    height: 32px;
+    width: 32px;
+    border: 0;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+  
+    span {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      transition: background-image 0.3s ease;
+    }
+  }
