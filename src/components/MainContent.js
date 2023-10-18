@@ -1,10 +1,27 @@
+import { useEffect, useState } from "react";
+
 import Card from "./Card";
 
-const MainContent = () => {
+const MainContent = ({ cartItemList, setCartItemList }) => {
+  const [requestData, setRequestData] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      "https://651e90f344a3a8aa4768992b.mockapi.io/items?random=${Math.random()"
+    )
+      .then((response) => response.json())
+      .then((data) => setRequestData(data));
+  }, []);
+
+  const handleAddButton = (item) => {
+    const isAdded = cartItemList.find((cartItem) => cartItem.id === item.id);
+    if (!isAdded) setCartItemList([...cartItemList, item]);
+  };
+
   return (
     <section class="content">
       <div class="content-header">
-        <h2>Все кроссвоки</h2>
+        <h2>Все кроссовки</h2>
         <div class="search-block">
           <img
             width="14px"
@@ -16,7 +33,18 @@ const MainContent = () => {
         </div>
       </div>
       <div class="card-area">
-        <Card />
+        {requestData
+          ? requestData.map(({ title, price, imageURL, id }) => (
+              <Card
+                key={id}
+                title={title}
+                price={price}
+                imageURL={imageURL}
+                id={id}
+                handleAddButton={handleAddButton}
+              />
+            ))
+          : "Загрузочка ..."}
       </div>
     </section>
   );

@@ -3,12 +3,16 @@ import { useState } from "react";
 import commonStyles from "../common/commonButtons.module.scss";
 import styles from "./card.module.scss";
 
-const Card = () => {
+const Card = ({ title, price, imageURL, id, handleAddButton }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
   const likeClick = () => setIsLiked(!isLiked);
-  const addClick = () => setIsAdded(!isAdded);
+
+  const addClick = () => {
+    setIsAdded(!isAdded);
+    handleAddButton({ id, title, price, imageURL });
+  };
 
   return (
     <div className={styles.card}>
@@ -20,19 +24,12 @@ const Card = () => {
       >
         <span></span>
       </button>
-      <img
-        width="133px"
-        height="112px"
-        src="https://sportoriginal.by/upload/resize_cache/webp/iblock/e46/finpym3g1cwvytyo1rozsnw8o6fttpfi.webp"
-        alt="sneakers"
-      />
-      <h5 className={styles["card-title"]}>
-        Мужские Кроссовки Nike Blazer Mid Suede
-      </h5>
+      <img width="133px" height="112px" src={imageURL} alt={title} />
+      <h5 className={styles["card-title"]}>{title}</h5>
       <div className={styles["card-description"]}>
         <div className={styles["card-left"]}>
           <span className={styles["price"]}>Цена:</span>
-          <b>12999 р.</b>
+          <b>{price} р.</b>
         </div>
         <button
           onClick={addClick}

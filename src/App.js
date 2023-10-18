@@ -2,16 +2,25 @@ import { useState } from "react";
 
 import Header from "./components/Header";
 import MainContent from "./components/MainContent";
-import Drawer from "./components/Drawer";
+import DrawerContainer from "./components/Drawer/DrawerContainer";
 
 const App = () => {
   const [cartOpened, setCartOpened] = useState(false);
+  const [cartItemList, setCartItemList] = useState([]);
 
   return (
     <>
-      {cartOpened && <Drawer setCartOpened={setCartOpened} />}
+      {cartOpened && (
+        <DrawerContainer
+          setCartOpened={setCartOpened}
+          cartItemList={cartItemList}
+        />
+      )}
       <Header setCartOpened={setCartOpened} />
-      <MainContent />
+      <MainContent
+        cartItemList={cartItemList}
+        setCartItemList={setCartItemList}
+      />
     </>
   );
 };
