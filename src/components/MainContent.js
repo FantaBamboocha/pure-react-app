@@ -14,8 +14,11 @@ const MainContent = ({ cartItemList, setCartItemList }) => {
   }, []);
 
   const handleAddButton = (item) => {
-    const isAdded = cartItemList.find((cartItem) => cartItem.id === item.id);
-    if (!isAdded) setCartItemList([...cartItemList, item]);
+    const { id, isAdded } = item;
+    if (isAdded) setCartItemList([...cartItemList, item]);
+    if (!isAdded) {
+      setCartItemList(cartItemList.filter((cartItem) => cartItem.id !== id));
+    }
   };
 
   return (

@@ -10,8 +10,11 @@ const Card = ({ title, price, imageURL, id, handleAddButton }) => {
   const likeClick = () => setIsLiked(!isLiked);
 
   const addClick = () => {
-    setIsAdded(!isAdded);
-    handleAddButton({ id, title, price, imageURL });
+    const updatedIsAdded = !isAdded;
+
+    setIsAdded(updatedIsAdded);
+
+    handleAddButton({ id, title, price, imageURL, isAdded: updatedIsAdded });
   };
 
   return (
