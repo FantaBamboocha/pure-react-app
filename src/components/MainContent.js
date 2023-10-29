@@ -4,6 +4,7 @@ import Card from "./Card";
 
 const MainContent = ({ cartItemList, setCartItemList }) => {
   const [requestData, setRequestData] = useState(null);
+  const [inputQuery, setInputQuery] = useState("");
 
   useEffect(() => {
     fetch(
@@ -12,6 +13,10 @@ const MainContent = ({ cartItemList, setCartItemList }) => {
       .then((response) => response.json())
       .then((data) => setRequestData(data));
   }, []);
+
+  const handleInputChange = (event) => {
+    setInputQuery(event.target.value);
+  };
 
   const handleAddButton = (item) => {
     const { id, isAdded } = item;
@@ -24,7 +29,9 @@ const MainContent = ({ cartItemList, setCartItemList }) => {
   return (
     <section class="content">
       <div class="content-header">
-        <h2>Все кроссовки</h2>
+        <h2>
+          {inputQuery ? `Поиск по запросу: "${inputQuery}"` : "Все кроссовки"}
+        </h2>
         <div class="search-block">
           <img
             width="14px"
@@ -32,21 +39,30 @@ const MainContent = ({ cartItemList, setCartItemList }) => {
             src="images/search.svg"
             alt="search"
           />
-          <input type="text" placeholder="Поиск..." />
+          <input
+            type="text"
+            value={inputQuery}
+            onChange={handleInputChange}
+            placeholder="Поиск..."
+          />
         </div>
       </div>
       <div class="card-area">
         {requestData
-          ? requestData.map(({ title, price, imageURL, id }) => (
-              <Card
-                key={id}
-                title={title}
-                price={price}
-                imageURL={imageURL}
-                id={id}
-                handleAddButton={handleAddButton}
-              />
-            ))
+          ? requestData
+              .filter(({ title }) =>
+                title.toLowerCase().includes(inputQuery.toLowerCase())
+              )
+              .map(({ title, price, imageURL, id }) => (
+                <Card
+                  key={id}
+                  title={title}
+                  price={price}
+                  imageURL={imageURL}
+                  id={id}
+                  handleAddButton={handleAddButton}
+                />
+              ))
           : "Загрузочка ..."}
       </div>
     </section>

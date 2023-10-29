@@ -14,6 +14,7 @@ const App = () => {
         <DrawerContainer
           setCartOpened={setCartOpened}
           cartItemList={cartItemList}
+          setCartItemList={setCartItemList}
         />
       )}
       <Header setCartOpened={setCartOpened} />

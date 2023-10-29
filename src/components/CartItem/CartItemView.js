@@ -1,5 +1,5 @@
-const CartItem = ({ item }) => {
-  const { title, price, imageURL } = item;
+const CartItemView = ({ item, deleteCartItem }) => {
+  const { id, title, price, imageURL } = item;
   return (
     <div class="cart-item">
       <img width="70px" height="70px" src={imageURL} alt="cart-item" />
@@ -8,7 +8,10 @@ const CartItem = ({ item }) => {
         <b>{price} p.</b>
       </div>
       <div>
-        <button class="common-button delete-button">
+        <button
+          className="common-button delete-button"
+          onClick={() => deleteCartItem(id)}
+        >
           <span></span>
         </button>
       </div>
@@ -16,4 +19,4 @@ const CartItem = ({ item }) => {
   );
 };
 
-export default CartItem;
+export default CartItemView;

@@ -1,6 +1,6 @@
-import CartItem from "../CartItem/CartItem";
+import CartItemContainer from "../CartItem/CartItemContainer";
 
-const DrawerView = ({ closeCart, cartItemList }) => {
+const DrawerView = ({ closeCart, cartItemList, deleteCartItem }) => {
   return (
     <div class="overlay">
       <div className="free-space" onClick={closeCart}></div>
@@ -8,7 +8,11 @@ const DrawerView = ({ closeCart, cartItemList }) => {
         <h4>Корзина</h4>
         <div class="cart-list">
           {cartItemList.map((item) => (
-            <CartItem key={item.id} item={item} />
+            <CartItemContainer
+              key={item.id}
+              item={item}
+              deleteCartItem={deleteCartItem}
+            />
           ))}
         </div>
         <div class="drawer-footer">
