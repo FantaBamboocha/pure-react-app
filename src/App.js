@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Header from "./components/Header";
-import MainContent from "./components/MainContent";
+import MainContentContainer from "./components/MainContent/MainContentContainer";
 import DrawerContainer from "./components/Drawer/DrawerContainer";
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
         />
       )}
       <Header setCartOpened={setCartOpened} />
-      <MainContent
+      <MainContentContainer
         cartItemList={cartItemList}
         setCartItemList={setCartItemList}
       />

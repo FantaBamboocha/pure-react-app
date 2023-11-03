@@ -1,12 +1,14 @@
 import CartItemContainer from "../CartItem/CartItemContainer";
 
+import styles from "./styles.module.scss";
+
 const DrawerView = ({ closeCart, cartItemList, deleteCartItem }) => {
   return (
-    <div class="overlay">
-      <div className="free-space" onClick={closeCart}></div>
-      <div class="drawer">
+    <div className={styles.overlay}>
+      <div className={styles["free-space"]} onClick={closeCart}></div>
+      <div className={styles.drawer}>
         <h4>Корзина</h4>
-        <div class="cart-list">
+        <div className={styles["cart-list"]}>
           {cartItemList.map((item) => (
             <CartItemContainer
               key={item.id}
@@ -15,18 +17,18 @@ const DrawerView = ({ closeCart, cartItemList, deleteCartItem }) => {
             />
           ))}
         </div>
-        <div class="drawer-footer">
-          <div class="drawer-footer-summary">
+        <div className={styles["drawer-footer"]}>
+          <div className={styles["drawer-footer-summary"]}>
             <p>Цена:</p>
             <div></div>
             <b>10000000000000 р.</b>
           </div>
-          <div class="drawer-footer-summary">
+          <div className={styles["drawer-footer-summary"]}>
             <p>Налог 5%:</p>
             <div></div>
             <b>100 р.</b>
           </div>
-          <button class="green-button">
+          <button className={styles["green-button"]}>
             Оформить заказ
             <img src="./images/order.svg" alt="arrow" />
           </button>

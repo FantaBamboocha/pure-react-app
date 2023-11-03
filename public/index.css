@@ -4,152 +4,54 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
-  font-family: "Inter"; }
+  font-family: "Inter";
+}
 
 .wrapper {
   margin: 50px auto;
   max-width: 1180px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
-  border-radius: 20px; }
-  .wrapper .common-button {
-    height: 32px;
-    width: 32px;
-    border: 0;
-    border-radius: 7px;
-    outline: none;
-    cursor: pointer; }
-    .wrapper .common-button span {
-      display: inline-block;
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-      transition: background-image 0.3s ease; }
-  .wrapper .green-button {
-    position: relative;
-    display: block;
-    width: 100%;
-    padding: 18px 0;
-    border: 0;
-    border-radius: 18px;
-    background: #9DD458;
-    color: #FFF;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s; }
-    .wrapper .green-button:hover {
-      background: #a9d96c; }
-    .wrapper .green-button:active {
-      background: #91cf44; }
-  .wrapper .overlay {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    z-index: 1; }
-    .wrapper .overlay .free-space {
-      width: 70%;
-      height: 100%; }
-    .wrapper .overlay .drawer {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      right: 0;
-      height: 100%;
-      width: 30%;
-      padding: 30px;
-      background-color: #FFFFFF; }
-      .wrapper .overlay .drawer h4 {
-        font-size: 24px;
-        font-weight: 700; }
-      .wrapper .overlay .drawer .cart-list {
-        flex: 1;
-        padding: 30px 0;
-        overflow: auto; }
-        .wrapper .overlay .drawer .cart-list .cart-item {
-          display: flex;
-          align-items: center;
-          margin-bottom: 20px;
-          padding: 30px 20px;
-          width: 100%;
-          border-radius: 20px;
-          border: 1px solid #F3F3F3;
-          background: #FFF; }
-          .wrapper .overlay .drawer .cart-list .cart-item .cart-item-info {
-            padding: 0 12px 0 21px; }
-            .wrapper .overlay .drawer .cart-list .cart-item .cart-item-info p {
-              margin-bottom: 8px; }
-        .wrapper .overlay .drawer .cart-list .delete-button {
-          opacity: 0.6;
-          transition: 0.3s; }
-          .wrapper .overlay .drawer .cart-list .delete-button:hover {
-            opacity: 1; }
-          .wrapper .overlay .drawer .cart-list .delete-button span {
-            background-image: url(images/delete-button.svg); }
-  .wrapper .drawer-footer .drawer-footer-summary {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 28px; }
-    .wrapper .drawer-footer .drawer-footer-summary > * {
-      flex: 0 0 auto; }
-    .wrapper .drawer-footer .drawer-footer-summary div {
-      flex: 1;
-      margin: 0 9px;
-      border-bottom: 1px dashed #DFDFDF; }
-  .wrapper .drawer-footer .green-button {
-    position: relative; }
-    .wrapper .drawer-footer .green-button:hover img {
-      transform: translate(10%, -50%); }
-    .wrapper .drawer-footer .green-button img {
-      position: absolute;
-      top: 50%;
-      right: 13%;
-      transform: translateY(-50%);
-      transition: transform 0.3s; }
-  .wrapper .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 44px;
-    border-bottom: #EAEAEA 1px solid; }
-    .wrapper .header .header-left {
-      display: flex;
-      justify-content: space-between;
-      align-items: center; }
-      .wrapper .header .header-left img {
-        margin-right: 20px; }
-      .wrapper .header .header-left .left-content h3 {
-        text-transform: uppercase; }
-      .wrapper .header .header-left .left-content p {
-        color: #9D9D9D; }
-    .wrapper .header .header-right {
-      display: flex;
-      gap: 30px;
-      align-items: center; }
-  .wrapper .content {
-    padding: 40px 44px; }
-    .wrapper .content .content-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center; }
-      .wrapper .content .content-header .search-block {
-        display: flex;
-        width: 250px;
-        height: 45px;
-        border-radius: 10px;
-        border: 1px solid #F3F3F3;
-        padding: 0 15px; }
-        .wrapper .content .content-header .search-block input {
-          font-size: 16px;
-          border: 0;
-          padding: 10px;
-          outline: none; }
-  .wrapper .card-area {
-    padding: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px; }
+  border-radius: 20px;
+}
+.wrapper .common-button {
+  height: 32px;
+  width: 32px;
+  border: 0;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+}
+.wrapper .common-button span {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  transition: background-image 0.3s ease;
+}
+
+.wrapper .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 44px;
+  border-bottom: #eaeaea 1px solid;
+}
+.wrapper .header .header-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrapper .header .header-left img {
+  margin-right: 20px;
+}
+.wrapper .header .header-left .left-content h3 {
+  text-transform: uppercase;
+}
+.wrapper .header .header-left .left-content p {
+  color: #9d9d9d;
+}
+.wrapper .header .header-right {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}

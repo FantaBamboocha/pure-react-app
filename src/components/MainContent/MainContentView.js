@@ -1,38 +1,21 @@
-import { useEffect, useState } from "react";
+import Card from "../Card";
 
-import Card from "./Card";
+import styles from "./styles.module.scss";
 
-const MainContent = ({ cartItemList, setCartItemList }) => {
-  const [requestData, setRequestData] = useState(null);
-  const [inputQuery, setInputQuery] = useState("");
-
-  useEffect(() => {
-    fetch(
-      "https://651e90f344a3a8aa4768992b.mockapi.io/items?random=${Math.random()"
-    )
-      .then((response) => response.json())
-      .then((data) => setRequestData(data));
-  }, []);
-
-  const handleInputChange = (event) => {
-    setInputQuery(event.target.value);
-  };
-
-  const handleAddButton = (item) => {
-    const { id, isAdded } = item;
-    if (isAdded) setCartItemList([...cartItemList, item]);
-    if (!isAdded) {
-      setCartItemList(cartItemList.filter((cartItem) => cartItem.id !== id));
-    }
-  };
-
+const MainContentView = ({
+  inputQuery,
+  handleInputChange,
+  requestData,
+  handleAddButton,
+  handleClearInput,
+}) => {
   return (
-    <section class="content">
-      <div class="content-header">
+    <section className={styles.content}>
+      <div className={styles["content-header"]}>
         <h2>
           {inputQuery ? `Поиск по запросу: "${inputQuery}"` : "Все кроссовки"}
         </h2>
-        <div class="search-block">
+        <div className={styles["search-block"]}>
           <img
             width="14px"
             height="45px"
@@ -45,9 +28,19 @@ const MainContent = ({ cartItemList, setCartItemList }) => {
             onChange={handleInputChange}
             placeholder="Поиск..."
           />
+          {inputQuery && (
+            <svg
+              onClick={handleClearInput}
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 384 512"
+            >
+              <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+            </svg>
+          )}
         </div>
       </div>
-      <div class="card-area">
+      <div className={styles["card-area"]}>
         {requestData
           ? requestData
               .filter(({ title }) =>
@@ -69,4 +62,4 @@ const MainContent = ({ cartItemList, setCartItemList }) => {
   );
 };
 
-export default MainContent;
+export default MainContentView;
