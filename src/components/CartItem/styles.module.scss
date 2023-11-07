@@ -1,0 +1,31 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 30px 20px;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid #F3F3F3;
+    background: #FFF;
+
+    .cart-item-info {
+      padding: 0 12px 0 21px;
+
+      p {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  .delete-button {
+    opacity: 0.6;
+    transition: 0.3s;
+
+    &:hover{
+      opacity: 1;
+    }
+
+    span {
+      background-image: url(../../../public/images/delete-button.svg);
+    }
+  }

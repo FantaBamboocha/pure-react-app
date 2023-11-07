@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import MainContentView from "./MainContentView";
+
+import { API_BASE_URL, ITEMS_ENDPOINT, CART_ENDPOINT } from "../../api";
 
 const MainContentContainer = ({ cartItemList, setCartItemList }) => {
   const [requestData, setRequestData] = useState(null);
   const [inputQuery, setInputQuery] = useState("");
 
   useEffect(() => {
-    fetch(
-      "https://651e90f344a3a8aa4768992b.mockapi.io/items?random=${Math.random()"
-    )
-      .then((response) => response.json())
-      .then((data) => setRequestData(data));
+    axios
+      .get(`${API_BASE_URL}${ITEMS_ENDPOINT}?random=${Math.random()}`)
+      .then((response) => setRequestData(response.data))
+      .catch((error) => console.log(error.message));
   }, []);
 
   const handleInputChange = (event) => {
@@ -20,8 +22,16 @@ const MainContentContainer = ({ cartItemList, setCartItemList }) => {
 
   const handleAddButton = (item) => {
     const { id, isAdded } = item;
-    if (isAdded) setCartItemList([...cartItemList, item]);
+    if (isAdded) {
+      axios
+        .post(`${API_BASE_URL}${CART_ENDPOINT}`, item)
+        .catch((error) => console.log(error));
+      setCartItemList([...cartItemList, item]);
+    }
     if (!isAdded) {
+      axios
+        .delete(`${API_BASE_URL}${CART_ENDPOINT}/${id}`)
+        .catch((error) => console.log(error));
       setCartItemList(cartItemList.filter((cartItem) => cartItem.id !== id));
     }
   };
