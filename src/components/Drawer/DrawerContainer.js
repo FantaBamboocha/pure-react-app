@@ -9,22 +9,29 @@ const DrawerContainer = ({ setCartOpened, cartItemList, setCartItemList }) => {
   const closeCart = () => setCartOpened(false);
 
   useEffect(() => {
-    axios
-      .get(`${API_BASE_URL}${CART_ENDPOINT}`)
-      .then((response) => setCartItemList(response.data))
-      .catch((error) => console.log(error));
+    const fetchCartItemList = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}${CART_ENDPOINT}`);
+
+        setCartItemList(response.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    fetchCartItemList();
   }, []);
 
-  const handleDeleteCartItem = (id) => {
-    console.log(id);
-    axios.delete(`${API_BASE_URL}${CART_ENDPOINT}/${id}`).catch((error) => {
-      console.log(error);
-    });
+  const handleDeleteCartItem = async (id) => {
+    try {
+      await axios.delete(`${API_BASE_URL}${CART_ENDPOINT}/${id}`);
 
-    setCartItemList((itemList) => {
-      const copyCartItemList = structuredClone(itemList);
-      return copyCartItemList.filter((cartItem) => cartItem.id !== id);
-    });
+      setCartItemList((itemList) =>
+        itemList.filter((cartItem) => cartItem.id !== id)
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (

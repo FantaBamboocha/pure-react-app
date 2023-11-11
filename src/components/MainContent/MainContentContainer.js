@@ -10,29 +10,40 @@ const MainContentContainer = ({ cartItemList, setCartItemList }) => {
   const [inputQuery, setInputQuery] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`${API_BASE_URL}${ITEMS_ENDPOINT}?random=${Math.random()}`)
-      .then((response) => setRequestData(response.data))
-      .catch((error) => console.log(error.message));
+    const fetchRequestData = async () => {
+      try {
+        const response = await axios.get(
+          `${API_BASE_URL}${ITEMS_ENDPOINT}?random=${Math.random()}`
+        );
+
+        setRequestData(response.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    fetchRequestData();
   }, []);
 
   const handleInputChange = (event) => {
     setInputQuery(event.target.value);
   };
 
-  const handleAddButton = (item) => {
+  const handleAddButton = async (item) => {
     const { id, isAdded } = item;
-    if (isAdded) {
-      axios
-        .post(`${API_BASE_URL}${CART_ENDPOINT}`, item)
-        .catch((error) => console.log(error));
-      setCartItemList([...cartItemList, item]);
-    }
-    if (!isAdded) {
-      axios
-        .delete(`${API_BASE_URL}${CART_ENDPOINT}/${id}`)
-        .catch((error) => console.log(error));
-      setCartItemList(cartItemList.filter((cartItem) => cartItem.id !== id));
+
+    try {
+      if (isAdded) {
+        await axios.post(`${API_BASE_URL}${CART_ENDPOINT}`, item);
+
+        setCartItemList([...cartItemList, item]);
+      } else {
+        await axios.delete(`${API_BASE_URL}${CART_ENDPOINT}/${id}`);
+
+        setCartItemList(cartItemList.filter((cartItem) => cartItem.id !== id));
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   };
 
